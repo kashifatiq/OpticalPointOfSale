@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="OpticalPointOfSale.Pages.MasterPage" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="../Content/Site.css" rel="stylesheet" />
+    <title>Optical Point Of Sale</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="cpHeader" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+        <div>
+        <asp:ContentPlaceHolder ID="cpCenter" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+           <div>
+        <asp:ContentPlaceHolder ID="cpFooter" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
