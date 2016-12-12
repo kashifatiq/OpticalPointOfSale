@@ -322,8 +322,8 @@ aside {
             padding: 2px 0 2px 20px;
         }
 
-.label {
-    font-size:larger;
+/*.label {
+    font-size:larger;*/
 }
 
 /* login page */
@@ -405,9 +405,9 @@ fieldset {
         background: #fff;
         color: #333;
         font-size: 1.2em;
-        margin: 5px 0 6px 0;
-        padding: 5px;
-        width: 300px;
+        margin: 1px 0 1px 0;
+        padding: 4px;
+        width: 100%;
     }
 
     textarea {
