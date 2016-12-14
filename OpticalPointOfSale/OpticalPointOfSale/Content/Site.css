@@ -475,7 +475,7 @@ fieldset {
 /* styles for validation helpers */
 .field-validation-error {
     color: #e80c4d;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 .field-validation-valid {

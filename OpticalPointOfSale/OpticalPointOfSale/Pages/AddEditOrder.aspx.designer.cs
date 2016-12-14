@@ -13,6 +13,15 @@ namespace OpticalPointOfSale.Pages {
     public partial class AddEditOrder {
         
         /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
+        
+        /// <summary>
         /// Label6 control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace OpticalPointOfSale.Pages {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -67,22 +85,22 @@ namespace OpticalPointOfSale.Pages {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// txtBookSerial1 control.
+        /// txtDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial1;
+        protected global::System.Web.UI.WebControls.TextBox txtDate;
         
         /// <summary>
-        /// txtBookSerial2 control.
+        /// txtDeliveryDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial2;
+        protected global::System.Web.UI.WebControls.TextBox txtDeliveryDate;
         
         /// <summary>
         /// Label4 control.
@@ -92,6 +110,15 @@ namespace OpticalPointOfSale.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// txtCustomerName control.
@@ -148,112 +175,112 @@ namespace OpticalPointOfSale.Pages {
         protected global::System.Web.UI.WebControls.Label Label14;
         
         /// <summary>
-        /// txtBookSerial9 control.
+        /// txtR_SPH_D control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial9;
+        protected global::System.Web.UI.WebControls.TextBox txtR_SPH_D;
         
         /// <summary>
-        /// txtBookSerial10 control.
+        /// txtR_CYL_D control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial10;
+        protected global::System.Web.UI.WebControls.TextBox txtR_CYL_D;
         
         /// <summary>
-        /// txtBookSerial11 control.
+        /// txtR_AXIS_D control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial11;
+        protected global::System.Web.UI.WebControls.TextBox txtR_AXIS_D;
         
         /// <summary>
-        /// txtBookSerial12 control.
+        /// txtR_VA_D control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial12;
+        protected global::System.Web.UI.WebControls.TextBox txtR_VA_D;
         
         /// <summary>
-        /// txtBookSerial13 control.
+        /// txtR_SPH_R control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial13;
+        protected global::System.Web.UI.WebControls.TextBox txtR_SPH_R;
         
         /// <summary>
-        /// txtBookSerial14 control.
+        /// txtR_CYL_R control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial14;
+        protected global::System.Web.UI.WebControls.TextBox txtR_CYL_R;
         
         /// <summary>
-        /// txtBookSerial15 control.
+        /// txtR_AXIS_R control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial15;
+        protected global::System.Web.UI.WebControls.TextBox txtR_AXIS_R;
         
         /// <summary>
-        /// txtBookSerial16 control.
+        /// txtR_VA_R control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial16;
+        protected global::System.Web.UI.WebControls.TextBox txtR_VA_R;
         
         /// <summary>
-        /// txtBookSerial17 control.
+        /// txtR_SPH_CL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial17;
+        protected global::System.Web.UI.WebControls.TextBox txtR_SPH_CL;
         
         /// <summary>
-        /// txtBookSerial18 control.
+        /// txtR_CYL_CL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial18;
+        protected global::System.Web.UI.WebControls.TextBox txtR_CYL_CL;
         
         /// <summary>
-        /// txtBookSerial19 control.
+        /// txtR_AXIS_CL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial19;
+        protected global::System.Web.UI.WebControls.TextBox txtR_AXIS_CL;
         
         /// <summary>
-        /// txtBookSerial20 control.
+        /// txtR_VA_CL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial20;
+        protected global::System.Web.UI.WebControls.TextBox txtR_VA_CL;
         
         /// <summary>
         /// Label15 control.
@@ -265,112 +292,112 @@ namespace OpticalPointOfSale.Pages {
         protected global::System.Web.UI.WebControls.Label Label15;
         
         /// <summary>
-        /// txtBookSerial21 control.
+        /// txtL_SPH_D control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial21;
+        protected global::System.Web.UI.WebControls.TextBox txtL_SPH_D;
         
         /// <summary>
-        /// txtBookSerial22 control.
+        /// txtL_CYL_D control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial22;
+        protected global::System.Web.UI.WebControls.TextBox txtL_CYL_D;
         
         /// <summary>
-        /// txtBookSerial23 control.
+        /// txtL_AXIS_D control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial23;
+        protected global::System.Web.UI.WebControls.TextBox txtL_AXIS_D;
         
         /// <summary>
-        /// txtBookSerial24 control.
+        /// txtL_VA_D control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial24;
+        protected global::System.Web.UI.WebControls.TextBox txtL_VA_D;
         
         /// <summary>
-        /// txtBookSerial28 control.
+        /// txtL_SPH_R control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial28;
+        protected global::System.Web.UI.WebControls.TextBox txtL_SPH_R;
         
         /// <summary>
-        /// txtBookSerial29 control.
+        /// txtL_CYL_R control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial29;
+        protected global::System.Web.UI.WebControls.TextBox txtL_CYL_R;
         
         /// <summary>
-        /// txtBookSerial30 control.
+        /// txtL_AXIS_R control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial30;
+        protected global::System.Web.UI.WebControls.TextBox txtL_AXIS_R;
         
         /// <summary>
-        /// txtBookSerial25 control.
+        /// txtL_VA_R control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial25;
+        protected global::System.Web.UI.WebControls.TextBox txtL_VA_R;
         
         /// <summary>
-        /// txtBookSerial32 control.
+        /// txtL_SPH_CL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial32;
+        protected global::System.Web.UI.WebControls.TextBox txtL_SPH_CL;
         
         /// <summary>
-        /// txtBookSerial31 control.
+        /// txtL_CYL_CL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial31;
+        protected global::System.Web.UI.WebControls.TextBox txtL_CYL_CL;
         
         /// <summary>
-        /// txtBookSerial27 control.
+        /// txtL_AXIS_CL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial27;
+        protected global::System.Web.UI.WebControls.TextBox txtL_AXIS_CL;
         
         /// <summary>
-        /// txtBookSerial26 control.
+        /// txtL_VA_CL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial26;
+        protected global::System.Web.UI.WebControls.TextBox txtL_VA_CL;
         
         /// <summary>
         /// Label8 control.
@@ -391,22 +418,22 @@ namespace OpticalPointOfSale.Pages {
         protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// txtBookSerial3 control.
+        /// txtFrames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial3;
+        protected global::System.Web.UI.WebControls.TextBox txtFrames;
         
         /// <summary>
-        /// txtBookSerial4 control.
+        /// txtLense control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial4;
+        protected global::System.Web.UI.WebControls.TextBox txtLense;
         
         /// <summary>
         /// Label10 control.
@@ -427,22 +454,22 @@ namespace OpticalPointOfSale.Pages {
         protected global::System.Web.UI.WebControls.Label Label11;
         
         /// <summary>
-        /// txtBookSerial5 control.
+        /// txtContactLenses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial5;
+        protected global::System.Web.UI.WebControls.TextBox txtContactLenses;
         
         /// <summary>
-        /// txtBookSerial8 control.
+        /// txtTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial8;
+        protected global::System.Web.UI.WebControls.TextBox txtTotal;
         
         /// <summary>
         /// Label12 control.
@@ -463,21 +490,39 @@ namespace OpticalPointOfSale.Pages {
         protected global::System.Web.UI.WebControls.Label Label13;
         
         /// <summary>
-        /// txtBookSerial6 control.
+        /// RequiredFieldValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial6;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// txtBookSerial7 control.
+        /// txtAdvance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookSerial7;
+        protected global::System.Web.UI.WebControls.TextBox txtAdvance;
+        
+        /// <summary>
+        /// txtBalance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBalance;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }
