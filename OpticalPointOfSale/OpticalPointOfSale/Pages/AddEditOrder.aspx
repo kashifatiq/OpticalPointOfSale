@@ -319,7 +319,7 @@
         
         <tr>
             <td style="width: 10%"></td>
-            <td style="text-align: center;" colspan="2"><asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" /></td>
+            <td style="text-align: center;" colspan="2"><asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" Width="80px" /></td>
             <td style="width: 10%"></td>
         </tr>
         
