@@ -13,6 +13,15 @@ namespace OpticalPointOfSale.Pages {
     public partial class AddEditOrder {
         
         /// <summary>
+        /// lblHeading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHeading;
+        
+        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace OpticalPointOfSale.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
+        
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
         /// Label6 control.

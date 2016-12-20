@@ -1,14 +1,37 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddEditOrder.aspx.cs" Inherits="OpticalPointOfSale.Pages.AddEditOrder" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="cpHeader" runat="server">
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpCenter" runat="server">
+    <script type="text/javascript">
+        function calcBalance()
+        {
+            var total = document.getElementById('<%= txtTotal.ClientID %>').value;
+            var advance = document.getElementById('<%= txtAdvance.ClientID %>').value;
+            var balance = total - advance;
+            document.getElementById('<%= txtBalance.ClientID %>').value = balance;
+        }
+    </script>
     <table align="left" cellpadding="0" cellspacing="0" style="width: 100%; float: left">
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="2" style="text-align: center">
+                <asp:Label ID="lblHeading" runat="server" CssClass="site-title" Text="Create Order"></asp:Label>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        
         <tr>
             <td></td>
             <td colspan="2" style="text-align: center">
                 <asp:Label ID="lblError" runat="server" CssClass="error" Font-Size="Medium"></asp:Label>
             </td>
             <td></td>
+        </tr>
+        
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="2" style="text-align: center">
+                <asp:Label ID="lblMessage" runat="server" CssClass="message-success" Font-Size="Medium"></asp:Label>
+            </td>
+            <td>&nbsp;</td>
         </tr>
         
         <tr>
@@ -130,28 +153,28 @@
                     <tr style="border: 1px solid #FF0000; height:38px" >
                         <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #FF0000; text-align: center;">D</td>
                         <td style="padding: 0em 0.9em 0em 0em; border: 1px solid #FF0000;">
-                <asp:TextBox ID="txtR_SPH_D" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtR_SPH_D" runat="server"></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtR_CYL_D" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtR_CYL_D" runat="server" ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtR_AXIS_D" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtR_AXIS_D" runat="server" ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtR_VA_D" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtR_VA_D" runat="server" ></asp:TextBox>
                         </td>
                     </tr>
                     <tr style="border: 1px solid #FF0000; height:38px" >
                         <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #FF0000">R</td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtR_SPH_R" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtR_SPH_R" runat="server" ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtR_CYL_R" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtR_CYL_R" runat="server" TextMode="SingleLine"></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtR_AXIS_R" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtR_AXIS_R" runat="server" ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
                 <asp:TextBox ID="txtR_VA_R" runat="server" TextMode="Number"></asp:TextBox>
@@ -163,13 +186,13 @@
                 <asp:TextBox ID="txtR_SPH_CL" runat="server" TextMode="Number"></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtR_CYL_CL" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtR_CYL_CL" runat="server"  ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtR_AXIS_CL" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtR_AXIS_CL" runat="server"  ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtR_VA_CL" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtR_VA_CL" runat="server"  ></asp:TextBox>
                         </td>
                     </tr>
                 </table>
@@ -192,46 +215,46 @@
                     <tr style="border: 1px solid #FF0000; height:38px" >
                         <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #FF0000">D</td>
                         <td style="padding:0em 0.9em 0em 0em; border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_SPH_D" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_SPH_D" runat="server"  ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_CYL_D" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_CYL_D" runat="server"  ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_AXIS_D" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_AXIS_D" runat="server"  ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_VA_D" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_VA_D" runat="server"  ></asp:TextBox>
                         </td>
                     </tr>
                     <tr style="border: 1px solid #FF0000; height:38px" >
                         <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #FF0000">R</td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_SPH_R" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_SPH_R" runat="server"  ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_CYL_R" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_CYL_R" runat="server"  ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_AXIS_R" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_AXIS_R" runat="server"  ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_VA_R" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_VA_R" runat="server"  ></asp:TextBox>
                         </td>
                     </tr>
                     <tr style="border: 1px solid #FF0000; height:38px" >
                         <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #FF0000">CL</td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_SPH_CL" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_SPH_CL" runat="server"  ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_CYL_CL" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_CYL_CL" runat="server"  ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_AXIS_CL" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_AXIS_CL" runat="server"  ></asp:TextBox>
                         </td>
                         <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtL_VA_CL" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtL_VA_CL" runat="server"  ></asp:TextBox>
                         </td>
                     </tr>
                 </table>               </td>
@@ -269,7 +292,7 @@
                 <asp:TextBox ID="txtContactLenses" runat="server"></asp:TextBox>
                         </td>
                         <td>
-                <asp:TextBox ID="txtTotal" runat="server" TextMode="Number">0</asp:TextBox>
+                <asp:TextBox ID="txtTotal" runat="server" TextMode="Number" onKeyUp = "calcBalance()">0</asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -283,7 +306,7 @@
                     </tr>
                     <tr>
                         <td>
-                <asp:TextBox ID="txtAdvance" runat="server" TextMode="Number">0</asp:TextBox>
+                <asp:TextBox ID="txtAdvance" runat="server" TextMode="Number" onKeyUp = "calcBalance()">0</asp:TextBox>
                         </td>
                         <td>
                 <asp:TextBox ID="txtBalance" runat="server" TextMode="Number">0</asp:TextBox>

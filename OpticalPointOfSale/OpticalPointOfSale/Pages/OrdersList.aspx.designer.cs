@@ -10,69 +10,78 @@
 namespace OpticalPointOfSale.Pages {
     
     
-    public partial class MasterPage {
+    public partial class OrdersList {
         
         /// <summary>
-        /// form1 control.
+        /// lblHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblHeading;
         
         /// <summary>
-        /// cpHeader control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cpHeader;
+        protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// lblShopName control.
+        /// lblMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShopName;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// lnkCreateOrder control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCreateOrder;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// lnkOrdersList control.
+        /// cmbSearchType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkOrdersList;
+        protected global::System.Web.UI.WebControls.DropDownList cmbSearchType;
         
         /// <summary>
-        /// cpCenter control.
+        /// txtSearchText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cpCenter;
+        protected global::System.Web.UI.WebControls.TextBox txtSearchText;
         
         /// <summary>
-        /// cpFooter control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cpFooter;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
+        
+        /// <summary>
+        /// gvOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvOrders;
     }
 }

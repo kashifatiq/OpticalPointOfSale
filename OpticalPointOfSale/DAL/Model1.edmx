@@ -83,6 +83,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SearchOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CustomerContact" Type="varchar(max)" Mode="In" />
+          <Parameter Name="OrderDate" Type="varchar" Mode="In" />
+          <Parameter Name="DeliveryDate" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="OpticalPointOfSaleModelStoreContainer">
           <EntitySet Name="AppSettings" EntityType="Self.AppSettings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerOrders" EntityType="Self.CustomerOrders" Schema="dbo" store:Type="Tables" />
@@ -158,6 +164,12 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="CustomerOrder" EntitySet="CustomerOrders" />
           </AssociationSet>
+          <FunctionImport Name="SearchOrders" ReturnType="Collection(OpticalPointOfSaleModel.SearchOrders_Result)">
+            <Parameter Name="CustomerName" Mode="In" Type="String" />
+            <Parameter Name="CustomerContact" Mode="In" Type="String" />
+            <Parameter Name="OrderDate" Mode="In" Type="String" />
+            <Parameter Name="DeliveryDate" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Customer">
           <Key>
@@ -185,6 +197,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="SearchOrders_Result">
+          <Property Type="Int64" Name="OrderId" Nullable="false" />
+          <Property Type="Int64" Name="CustomerID" Nullable="false" />
+          <Property Type="String" Name="Particularls" Nullable="true" />
+          <Property Type="String" Name="OrderDate" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="DeliveryDate" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="F_L_C" Nullable="true" MaxLength="1504" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Advance" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="CustomerContact" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -260,6 +285,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SearchOrders" FunctionName="OpticalPointOfSaleModel.Store.SearchOrders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OpticalPointOfSaleModel.SearchOrders_Result">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Particularls" ColumnName="Particularls" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="F_L_C" ColumnName="F/L/C" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Advance" ColumnName="Advance" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerContact" ColumnName="CustomerContact" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

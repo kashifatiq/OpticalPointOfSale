@@ -75,9 +75,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\grid-alt.png" />
+    <Content Include="Content\Images\grid-header.png" />
+    <Content Include="Content\Images\grid-pgr.png" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\OrdersList.aspx" />
     <Content Include="Pages\AddEditOrder.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -94,6 +98,13 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrdersList.aspx.cs">
+      <DependentUpon>OrdersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\OrdersList.aspx.designer.cs">
+      <DependentUpon>OrdersList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddEditOrder.aspx.cs">
       <DependentUpon>AddEditOrder.aspx</DependentUpon>

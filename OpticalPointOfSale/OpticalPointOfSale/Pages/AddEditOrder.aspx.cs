@@ -12,11 +12,12 @@ namespace OpticalPointOfSale.Pages
         OpticalPointOfSaleEntities EF = new OpticalPointOfSaleEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblError.Text = "";
+            EmptyMessages();
             try
             {
                 if (!IsPostBack)
                 {
+                    txtDate.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
                     var CustomerOrderExists = EF.CustomerOrders.FirstOrDefault();
                     long nextOrderNo = 0;
                     if (CustomerOrderExists != null)
@@ -34,7 +35,7 @@ namespace OpticalPointOfSale.Pages
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            lblError.Text = "";
+            EmptyMessages();
             try
             {
                 long CustomerID = GetCustomerID();
@@ -64,12 +65,69 @@ namespace OpticalPointOfSale.Pages
                     _Order.LE_AXIS_D = txtL_AXIS_D.Text.Trim();
                     _Order.LE_AXIS_R = txtL_AXIS_R.Text.Trim();
 
+                    _Order.LE_CYL_CL = txtL_CYL_CL.Text.Trim();
+                    _Order.LE_CYL_D = txtL_CYL_D.Text.Trim();
+                    _Order.LE_CYL_R = txtL_CYL_R.Text.Trim();
+
+                    _Order.LE_SPH_CL = txtL_SPH_CL.Text.Trim();
+                    _Order.LE_SPH_D = txtL_SPH_D.Text.Trim();
+                    _Order.LE_SPH_R = txtL_SPH_R.Text.Trim();
+
+                    _Order.LE_VA_CL = txtL_VA_CL.Text.Trim();
+                    _Order.LE_VA_D = txtL_VA_D.Text.Trim();
+                    _Order.LE_VA_R = txtL_VA_R.Text.Trim();
+
+                    _Order.Lenses = txtLense.Text.Trim();
+                    _Order.OrderDate = Convert.ToDateTime(txtDate.Text.Trim());
+                    _Order.Particularls = txtParticulars.Text.Trim();
+
+                    _Order.RE_AXIS_CL = txtR_AXIS_CL.Text.Trim();
+                    _Order.RE_AXIS_D = txtR_AXIS_D.Text.Trim();
+                    _Order.RE_AXIS_R = txtR_AXIS_R.Text.Trim();
+
+                    _Order.RE_CYL_CL = txtR_CYL_CL.Text.Trim();
+                    _Order.RE_CYL_D = txtR_CYL_D.Text.Trim();
+                    _Order.RE_CYL_R = txtR_CYL_R.Text.Trim();
+
+                    _Order.RE_SPH_CL = txtR_SPH_CL.Text.Trim();
+                    _Order.RE_SPH_D = txtR_SPH_D.Text.Trim();
+                    _Order.RE_SPH_R = txtR_SPH_R.Text.Trim();
+
+                    _Order.RE_VA_CL = txtR_VA_CL.Text.Trim();
+                    _Order.RE_VA_D = txtR_VA_D.Text.Trim();
+                    _Order.RE_VA_R = txtR_VA_R.Text.Trim();
+
+                    if (string.IsNullOrEmpty(txtTotal.Text.Trim()))
+                        _Order.Total = 0;
+                    else
+                        _Order.Total = Convert.ToInt32(txtTotal.Text.Trim());
+                    EF.CustomerOrders.Add(_Order);
+                    EF.SaveChanges();
+                    lblMessage.Text = "Order saved";
+                    EmptyControls();
                 }
             }
             catch (Exception ex)
             {
                 lblError.Text = ex.Message;
             }
+        }
+
+        private void EmptyControls()
+        {
+            txtAdvance.Text = txtBalance.Text = txtTotal.Text = "0";
+            txtBookSerial.Text = txtContactInfo.Text = txtContactLenses.Text = txtCustomerName.Text = txtFrames.Text = "";
+            txtDate.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            txtDeliveryDate.Text = "";
+            txtL_AXIS_CL.Text = txtL_AXIS_D.Text = txtL_AXIS_R.Text = txtL_CYL_CL.Text = txtL_CYL_D.Text = txtL_CYL_R.Text = txtL_SPH_CL.Text = txtL_SPH_D.Text = txtL_SPH_R.Text = txtL_VA_CL.Text = txtL_VA_D.Text = txtL_VA_R.Text = "";
+            txtLense.Text = txtParticulars.Text = txtR_AXIS_CL.Text = txtR_AXIS_D.Text = txtR_AXIS_R.Text = txtR_CYL_CL.Text = txtR_CYL_D.Text = txtR_CYL_R.Text = txtR_SPH_CL.Text = txtR_SPH_D.Text = txtR_SPH_R.Text = txtR_VA_CL.Text = txtR_VA_D.Text = txtR_VA_R.Text = "";
+            txtSystemOrderNo.Text = "";
+        }
+
+        private void EmptyMessages()
+        {
+            lblError.Text = "";
+            lblMessage.Text = "";
         }
 
         /// <summary>

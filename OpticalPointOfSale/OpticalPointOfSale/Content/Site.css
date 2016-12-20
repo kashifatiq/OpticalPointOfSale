@@ -15,17 +15,19 @@ body {
 }
 
 a {
-    color: #333;
+    color: #FF0000;
     outline: none;
     padding-left: 3px;
     padding-right: 3px;
     text-decoration: underline;
+    border:none;
+    font-size:large;
 }
 
-    a:link, a:visited,
+    /*a:link, a:visited,
     a:active, a:hover {
         color: #333;
-    }
+    }*/
 
     a:hover {
         background-color: #c7d1d6;
@@ -128,8 +130,7 @@ footer {
 /* site title
 ----------------------------------------------------------*/
 .site-title {
-    color: #c8c8c8;
-    font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
+    color: darkblue;
     font-size: 2.3em;
     margin: 0;
 }
@@ -462,9 +463,9 @@ fieldset {
 }
 
 .message-success {
-    color: #7ac0da;
+    color: green;
     font-size: 1.3em;
-    font-weight: bold;
+    
     margin: 20px 0 10px 0;
 }
 
@@ -732,3 +733,41 @@ tr.pager td {
         }
 }
 /* END: Mobile Styles */
+
+.Grid {
+        background-color: #fff; 
+        margin: 5px 0 10px 0; 
+        border: solid 1px #525252; 
+        border-collapse:collapse; 
+        font-family:Calibri; 
+        font-size:medium;
+        font-weight:normal;
+        color: #474747;
+        width:100%;
+}
+.Grid td {
+      padding: 2px; 
+      border: solid 1px #c1c1c1; }
+.Grid th  {
+      padding : 4px 2px; 
+      color: #fff; 
+      background: #363670 url(Images/grid-header.png) repeat-x top; 
+      border-left: solid 1px #525252; 
+      font-size: 0.9em; }
+.Grid .alt {
+      background: #fcfcfc url(Images/grid-alt.png) repeat-x top; }
+.Grid .pgr {background: #363670 url(Images/grid-pgr.png) repeat-x top; }
+.Grid .pgr table { margin: 3px 0; }
+.Grid .pgr td { border-width: 0; padding: 0 6px; border-left: solid 1px #666; font-weight: bold; color: #fff; line-height: 12px; }   
+.Grid .pgr a { color: Gray; text-decoration: none; }
+.Grid .pgr a:hover { color: #000; text-decoration: none; }
+
+.select {
+   
+   padding: 5px;
+   font-size: small;
+   
+   border: 0;
+   border-radius: 0;
+  
+   }

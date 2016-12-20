@@ -4,11 +4,33 @@
 <head runat="server">
     <link href="../Content/Site.css" rel="stylesheet" />
     <title>Optical Point Of Sale</title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            float: left;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder ID="cpHeader" runat="server">
+        
+            <table align="left" class="auto-style1">
+                <tr>
+                    <td style="width: 10px">&nbsp;</td>
+                    <td>
+                        <asp:Label ID="lblShopName" runat="server" Text="Shop Name"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:LinkButton ID="lnkCreateOrder" runat="server" PostBackUrl="~\Pages\AddEditOrder.aspx" CausesValidation="False">Create Order</asp:LinkButton>
+                    &nbsp;
+                        <asp:LinkButton ID="lnkOrdersList" runat="server" PostBackUrl="~\Pages\OrdersList.aspx" CausesValidation="False">Orders List</asp:LinkButton>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
         
         </asp:ContentPlaceHolder>
     </div>

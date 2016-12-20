@@ -12,6 +12,8 @@ namespace DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class OpticalPointOfSaleEntities : DbContext
     {
@@ -28,5 +30,26 @@ namespace DAL
         public virtual DbSet<AppSetting> AppSettings { get; set; }
         public virtual DbSet<CustomerOrder> CustomerOrders { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+    
+        public virtual ObjectResult<SearchOrders_Result> SearchOrders(string customerName, string customerContact, string orderDate, string deliveryDate)
+        {
+            var customerNameParameter = customerName != null ?
+                new ObjectParameter("CustomerName", customerName) :
+                new ObjectParameter("CustomerName", typeof(string));
+    
+            var customerContactParameter = customerContact != null ?
+                new ObjectParameter("CustomerContact", customerContact) :
+                new ObjectParameter("CustomerContact", typeof(string));
+    
+            var orderDateParameter = orderDate != null ?
+                new ObjectParameter("OrderDate", orderDate) :
+                new ObjectParameter("OrderDate", typeof(string));
+    
+            var deliveryDateParameter = deliveryDate != null ?
+                new ObjectParameter("DeliveryDate", deliveryDate) :
+                new ObjectParameter("DeliveryDate", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SearchOrders_Result>("SearchOrders", customerNameParameter, customerContactParameter, orderDateParameter, deliveryDateParameter);
+        }
     }
 }
