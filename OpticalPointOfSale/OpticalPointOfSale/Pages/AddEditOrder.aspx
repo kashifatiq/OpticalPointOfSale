@@ -11,53 +11,42 @@
     </script>
     <table align="left" cellpadding="0" cellspacing="0" style="width: 100%; float: left">
         <tr>
-            <td>&nbsp;</td>
             <td colspan="2" style="text-align: center">
                 <asp:Label ID="lblHeading" runat="server" CssClass="site-title" Text="Create Order"></asp:Label>
             </td>
-            <td>&nbsp;</td>
         </tr>
         
         <tr>
-            <td></td>
             <td colspan="2" style="text-align: center">
                 <asp:Label ID="lblError" runat="server" CssClass="error" Font-Size="Medium"></asp:Label>
             </td>
-            <td></td>
         </tr>
         
         <tr>
-            <td>&nbsp;</td>
             <td colspan="2" style="text-align: center">
                 <asp:Label ID="lblMessage" runat="server" CssClass="message-success" Font-Size="Medium"></asp:Label>
             </td>
-            <td>&nbsp;</td>
         </tr>
         
         <tr>
-            <td></td>
             <td>
                 <asp:Label ID="Label6" runat="server" Text="System Order #"></asp:Label>
             </td>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="Book Serial #" CssClass="label"></asp:Label>
             </td>
-            <td></td>
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td style="width: 40%">
                 <asp:TextBox ID="txtSystemOrderNo" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
             </td>
             <td style="width: 40%">
                 <asp:TextBox ID="txtBookSerial" runat="server"></asp:TextBox>
             </td>
-            <td style="width: 10%">&nbsp;</td>
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td style="width: 40%">
                 <asp:Label ID="Label2" runat="server" Text="Date" CssClass="label"></asp:Label>
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDate" CssClass="field-validation-error" Display="Dynamic" ErrorMessage="RequiredFieldValidator">This field is required</asp:RequiredFieldValidator>
@@ -65,74 +54,56 @@
             <td style="width: 40%">
                 <asp:Label ID="Label3" runat="server" Text="Delivery Date"></asp:Label>
             </td>
-            <td style="width: 10%">&nbsp;</td>
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td style="width: 40%">
                 <asp:TextBox ID="txtDate" runat="server" TextMode="Date"></asp:TextBox>
             </td>
             <td style="width: 40%">
                 <asp:TextBox ID="txtDeliveryDate" runat="server" TextMode="Date"></asp:TextBox>
             </td>
-            <td style="width: 10%">&nbsp;</td>
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td style="width: 40%">
                 <asp:Label ID="Label4" runat="server" Text="Customer Name" CssClass="label"></asp:Label>
             &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCustomerName" CssClass="field-validation-error" Display="Dynamic" ErrorMessage="RequiredFieldValidator">This field is required</asp:RequiredFieldValidator>
             </td>
-            <td style="width: 40%">
-                &nbsp;</td>
-            <td style="width: 10%">&nbsp;</td>
+            <td style="width: 40%"></td>
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td colspan="2">
                 <asp:TextBox ID="txtCustomerName" runat="server"></asp:TextBox>
             </td>
-            <td style="width: 10%">&nbsp;</td>
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td style="width: 40%">
                 <asp:Label ID="Label5" runat="server" Text="Contact information" CssClass="label"></asp:Label>
             </td>
-            <td style="width: 40%"></td>
-            <td style="width: 10%"></td>
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td colspan="2" style="width: 80%">
                 <asp:TextBox ID="txtContactInfo" runat="server"></asp:TextBox>
             </td>
-            <td style="width: 10%"></td>
         </tr>
         
         <tr>
-            <td style="width: 10%"></td>
             <td style="text-align: center; width: 80%" colspan="2">
                 <asp:Label ID="Label7" runat="server" Text="Particulars"></asp:Label>
             </td>
-            <td style="width: 10%"></td>
         </tr>
         
         <tr>
-            <td style="width: 10%"></td>
             <td colspan="2" style="width: 80%">
                 <asp:TextBox ID="txtParticulars" runat="server" TextMode="MultiLine" Width="100%"></asp:TextBox>
             </td>
-            <td style="width: 10%"></td>
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td style="padding: 0px 2em 0em 0em; width: 40%; vertical-align: top;">
                 <table align="left" cellpadding="0" cellspacing="0" class="float-left">
                     <tr>
@@ -314,34 +285,13 @@
                     </tr>
                 </table>
             </td>
-            <td style="width: 10%">&nbsp;</td>
         </tr>
         
         <tr>
-            <td style="width: 10%"></td>
             <td style="text-align: center;" colspan="2"><asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" Width="80px" /></td>
-            <td style="width: 10%"></td>
         </tr>
         
-        <tr>
-            <td style="width: 10%">&nbsp;</td>
-            <td style="width: 40%">
-                &nbsp;</td>
-            <td style="width: 40%">
-                &nbsp;</td>
-            <td style="width: 10%">&nbsp;</td>
-        </tr>
-        
-        <tr>
-            <td style="width: 10%">&nbsp;</td>
-            <td style="width: 40%">
-                &nbsp;</td>
-            <td style="width: 40%">
-                &nbsp;</td>
-            <td style="width: 10%">&nbsp;</td>
-        </tr>
-        
-    </table>
+        </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cpFooter" runat="server">
 </asp:Content>

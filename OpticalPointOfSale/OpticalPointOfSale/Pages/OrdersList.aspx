@@ -5,60 +5,55 @@
     </script>
     <table align="left" cellpadding="0" cellspacing="0" style="width: 100%; float: left">
         <tr>
-            <td>&nbsp;</td>
             <td colspan="2" style="text-align: center">
                 <asp:Label ID="lblHeading" runat="server" CssClass="site-title" Text="Orders Lists"></asp:Label>
             </td>
-            <td>&nbsp;</td>
+            
         </tr>
         
         <tr>
-            <td></td>
             <td colspan="2" style="text-align: center">
                 <asp:Label ID="lblError" runat="server" CssClass="error" Font-Size="Medium"></asp:Label>
             </td>
-            <td></td>
+            
         </tr>
         
         <tr>
-            <td>&nbsp;</td>
             <td colspan="2" style="text-align: center">
                 <asp:Label ID="lblMessage" runat="server" CssClass="message-success" Font-Size="Medium"></asp:Label>
             </td>
-            <td>&nbsp;</td>
+            
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td style="width: 20%">
                 <asp:Label ID="Label5" runat="server" Text="Search Type" CssClass="label"></asp:Label>
             </td>
-            <td style="width: 60%"></td>
-            <td style="width: 10%"></td>
+            
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td style="width: 20%">
-                <asp:DropDownList ID="cmbSearchType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="cmbSearchType_SelectedIndexChanged" Width="100%" CssClass="select">
-                </asp:DropDownList>
+                <table align="left" cellpadding="0" cellspacing="0" style="width: 100%; float: left">
+                    <tr>
+                        <td style="width: 20%; padding:0px 20px 0px 0px">
+                            <asp:DropDownList ID="cmbSearchType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="cmbSearchType_SelectedIndexChanged" Width="100%" CssClass="select"></asp:DropDownList>
+                        </td>
+                        <td style="width: 70%">
+                            <asp:TextBox ID="txtSearchText" runat="server" Width="100%"></asp:TextBox>
+                        </td>
+                        <td style="width: 10%">
+                             <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" Width="100px" />
+                        </td>
+                    </tr>
+                </table>
             </td>
-            <td style="width: 60%">
-                <asp:TextBox ID="txtSearchText" runat="server" Width="90%"></asp:TextBox>
-                <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" /></td>
-            <td style="width: 10%">&nbsp;</td>
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
-            <td style="width: 20%">
-                &nbsp;</td>
-            <td style="width: 60%">&nbsp;</td>
-            <td style="width: 10%">&nbsp;</td>
-        </tr>
-        
+            <td style="width: 20%"></td>
+        </tr>      
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td colspan="2" style="width: 80%">
                 <asp:GridView ID="gvOrders" runat="server" AutoGenerateColumns="False" CssClass="Grid" DataKeyNames="OrderId">
                     <Columns>
@@ -76,19 +71,10 @@
                     </Columns>
                 </asp:GridView>
             </td>
-            <td style="width: 10%"></td>
         </tr>
         
         <tr>
-            <td style="width: 10%">&nbsp;</td>
             <td style="text-align: center;" colspan="2">&nbsp;</td>
-            <td style="width: 10%">&nbsp;</td>
-        </tr>
-        
-        <tr>
-            <td style="width: 10%"></td>
-            <td style="text-align: center;" colspan="2">&nbsp;</td>
-            <td style="width: 10%"></td>
         </tr>
         
         </table>
