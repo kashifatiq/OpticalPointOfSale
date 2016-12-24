@@ -10,18 +10,18 @@
  <table align="left" cellpadding="0" cellspacing="0" style="width: 100%; float: left">       
         <tr>
             <td style="width: 10%"></td>
-            <td style="width: 80%">
+            <td style="width: 80%; padding:0px">
                 <asp:ContentPlaceHolder ID="cpHeader" runat="server">
                     <table align="left" cellpadding="0" cellspacing="0" style="width: 100%; float: left">
                         <tr>
-                            <td>
-                                <asp:Label ID="lblShopName" runat="server" Text="Shop Name"></asp:Label>
-                            </td>
+                            <td class="zero" style="padding:5px 0px 5px 0px">
+                                <asp:Label ID="lblShopName" runat="server" Text="Shop Name" Font-Size="Large"></asp:Label>
+                            </td> 
                         </tr>
                         <tr>
-                            <td>
-                                <asp:LinkButton ID="lnkCreateOrder" runat="server" PostBackUrl="~\Pages\AddEditOrder.aspx" CausesValidation="False">Create Order</asp:LinkButton>
-                                <asp:LinkButton ID="lnkOrdersList" runat="server" PostBackUrl="~\Pages\OrdersList.aspx" CausesValidation="False">Orders List</asp:LinkButton>
+                            <td style="background-color:grey; text-align:center">
+                                <asp:LinkButton ID="lnkCreateOrder" runat="server" PostBackUrl="~\Pages\AddEditOrder.aspx" CausesValidation="False">Create order</asp:LinkButton>
+                                <asp:LinkButton ID="lnkOrdersList" runat="server" PostBackUrl="~\Pages\OrdersList.aspx" CausesValidation="False">Orders list</asp:LinkButton>
                             </td>
                         </tr>
                     </table>
@@ -31,7 +31,7 @@
         </tr>
         <tr>
             <td style="width: 10%">&nbsp;</td>
-            <td style="width: 80%">
+            <td style="border: thin solid #808080; width: 80%; padding:15px">
                 <asp:ContentPlaceHolder ID="cpCenter" runat="server"></asp:ContentPlaceHolder>
             </td>
             <td style="width: 10%">&nbsp;</td>

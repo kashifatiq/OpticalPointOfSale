@@ -11,7 +11,7 @@
     </script>
     <table align="left" cellpadding="0" cellspacing="0" style="width: 100%; float: left">
         <tr>
-            <td colspan="2" style="text-align: center">
+            <td colspan="2">
                 <asp:Label ID="lblHeading" runat="server" CssClass="site-title" Text="Create Order"></asp:Label>
             </td>
         </tr>
