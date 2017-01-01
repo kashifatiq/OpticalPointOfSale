@@ -1,37 +1,30 @@
 ﻿html {
-    background-color: #e2e2e2;
     margin: 0;
     padding: 0;
 }
 
 body {
-    /*background-color: #fff;
-    border-top: solid 10px #000;*/
-    color: #333;
     font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    font-family: Verdana,sans-serif,Segoe UI, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
 }
 
-a {
+a:link, a:visited {
+    background-color: #f44336;
     color: white;
-    outline: none;
-    padding-left: 0px;
-    padding-right: 5px;
-    text-decoration: underline;
-    border:none;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight:normal;
     font-size:medium;
 }
 
-    /*a:link, a:visited,
-    a:active, a:hover {
-        color: #333;
-    }*/
 
-    a:hover {
-        background-color: #c7d1d6;
-    }
+a:hover, a:active {
+    background-color: red;
+}
 
 header, footer, hgroup,
 nav, section {
@@ -135,8 +128,9 @@ footer {
 ----------------------------------------------------------*/
 .site-title {
     color: darkblue;
-    font-size: x-large;
+    font-size: large;
     margin: 0;
+    
 }
 
 .site-title a, .site-title a:hover, .site-title a:active {
@@ -407,7 +401,7 @@ fieldset {
 
     input, textarea {
         border: 1px solid #e2e2e2;
-        background: #fff;
+        background: #f8f7f7;
         color: #333;
         font-size: 1.2em;
         margin: 1px 0 1px 0;
@@ -429,29 +423,7 @@ fieldset {
             border: inherit;
             width: auto;
         }
-        
-    input[type="submit"],
-    input[type="button"],
-    button {
-        background-color: #d3dce0;
-        border: 1px solid #787878;
-        cursor: pointer;
-        font-size: 1.2em;
-        font-weight: 600;
-        /*padding: 7px;*/
-        margin-right: 8px;
-        width: auto;
-    }
-
-    td input[type="submit"],
-    td input[type="button"],
-    td button {
-        font-size: small;
-        padding: 6px;
-        margin-right: 0px;
-        height:auto;
-    }
-
+  
 /* info and errors */
 .message-info {
     border: 1px solid;
@@ -741,7 +713,7 @@ tr.pager td {
 
 .Grid {
         background-color: #fff; 
-        margin: 5px 0 10px 0; 
+        margin: 5px 0 10px 0;
         border: solid 1px #525252; 
         border-collapse:collapse; 
         font-family:Calibri; 
@@ -751,27 +723,54 @@ tr.pager td {
         width:100%;
 }
 .Grid td {
-      padding: 2px; 
-      border: solid 1px #c1c1c1; }
+      padding: 0px 0px 0px 5px; 
+      border: solid 1px #c1c1c1;
+}
 .Grid th  {
-      padding : 4px 2px; 
+      padding : 10px 0px 10px 10px; 
       color: #fff; 
-      /*background: #363670 url(Images/grid-header.png) repeat-x top;*/ 
       background-color:grey;
       border-left: solid 1px #525252; 
       font-size: 0.9em; }
-.Grid .alt {
-      background: #fcfcfc url(Images/grid-alt.png) repeat-x top; }
-.Grid .pgr {background: #363670 url(Images/grid-pgr.png) repeat-x top; }
+.Grid td a {background-color:white;color:black;text-decoration:underline;}
+.Grid .alt {background-color:gray; }
+.Grid .pgr {background-color:gray;  }
 .Grid .pgr table { margin: 3px 0; }
-.Grid .pgr td { border-width: 0; padding: 0 6px; border-left: solid 1px #666; font-weight: bold; color: #fff; line-height: 12px; }   
-.Grid .pgr a { color: Gray; text-decoration: none; }
-.Grid .pgr a:hover { color: #000; text-decoration: none; }
+.Grid .pgr td { border-width: 0; padding: 0 6px; font-weight: bold; color: #fff; line-height: 12px; }   
+.Grid .pgr td a { color: #f44336; text-decoration: none; padding: 5px; background-color:transparent;}
+.Grid .pgr td a:hover { color: #000; text-decoration: none; padding: 5px;}
+.Grid .pgr td a:visited { color: #000; text-decoration: none; padding: 5px;}
 
-.select {
-   
+.select {  
+   background-color:#f8f7f7;
    padding: 5px;
    font-size: small;
-   border: 0;
-   border-radius: 0;
+   border: 1px solid #e2e2e2;
    }
+
+.button {
+    background-color: white; /* Green */
+    border: none;
+    color: #4CAF50;
+    padding: 5px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width:100px;
+}
+
+.buttonSubmit {
+    background-color: #4CAF50; 
+    color: white; 
+    border: 2px solid #4CAF50;
+}
+
+.buttonSubmit:hover {
+    background-color: white;
+    color: black;
+}

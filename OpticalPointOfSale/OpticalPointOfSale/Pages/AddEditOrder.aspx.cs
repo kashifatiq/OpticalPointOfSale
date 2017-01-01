@@ -17,17 +17,92 @@ namespace OpticalPointOfSale.Pages
             {
                 if (!IsPostBack)
                 {
-                    txtDate.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
-                    var CustomerOrderExists = EF.CustomerOrders.FirstOrDefault();
-                    long nextOrderNo = 0;
-                    if (CustomerOrderExists != null)
+                    if (Request.QueryString["orderid"] == null)
                     {
-                        nextOrderNo = (from objresult in EF.CustomerOrders select objresult.OrderId).Max();
+                        txtDate.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
+                        var CustomerOrderExists = EF.CustomerOrders.FirstOrDefault();
+                        long nextOrderNo = 0;
+                        if (CustomerOrderExists != null)
+                        {
+                            nextOrderNo = (from objresult in EF.CustomerOrders select objresult.OrderId).Max();
+                        }
+                        txtSystemOrderNo.Text = (nextOrderNo + 1).ToString();
                     }
-                    txtSystemOrderNo.Text = (nextOrderNo + 1).ToString();
+                    else
+                    {
+                        long OrderID = Convert.ToInt64(Request.QueryString["orderid"]);
+                        LoadData(OrderID);
+                        btnSave.Text = "Update";
+                    }
                 }
             }
             catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+            }
+        }
+
+        private void LoadData(long OrderID)
+        {
+            try
+            {
+                CustomerOrder _Order = (from objResult in EF.CustomerOrders where objResult.OrderId == OrderID select objResult).FirstOrDefault();
+                if (_Order != null)
+                {
+                    txtSystemOrderNo.Text = _Order.OrderId.ToString();
+                    txtBookSerial.Text = _Order.BookOrderNo;
+                    txtAdvance.Text = _Order.Advance.ToString();
+                    txtBalance.Text = _Order.Balance.ToString();
+                    txtTotal.Text = _Order.Total.ToString();
+                    txtContactInfo.Text = _Order.Customer.ContactInfo;
+                    txtContactLenses.Text = _Order.ContactLense;
+                    txtCustomerName.Text = _Order.Customer.Name;
+                    txtDate.Text = _Order.OrderDate.ToString("MM/dd/yyyy");
+                    if (_Order.DeliveryDate != null)
+                        txtDeliveryDate.Text = ((DateTime)_Order.DeliveryDate).ToString("MM/dd/yyyy");
+                    txtFrames.Text = _Order.Frame;
+                    txtParticulars.Text = _Order.Particularls;
+
+                    txtL_AXIS_CL.Text = _Order.LE_AXIS_CL;
+                    txtL_AXIS_D.Text = _Order.LE_AXIS_D;
+                    txtL_AXIS_R.Text = _Order.LE_AXIS_R;
+
+                    txtL_CYL_CL.Text = _Order.LE_CYL_CL;
+                    txtL_CYL_D.Text = _Order.LE_CYL_D;
+                    txtL_CYL_R.Text = _Order.LE_CYL_R;
+
+                    txtL_SPH_CL.Text = _Order.LE_SPH_CL;
+                    txtL_SPH_D.Text = _Order.LE_SPH_D;
+                    txtL_SPH_R.Text = _Order.LE_SPH_R;
+
+                    txtL_VA_CL.Text = _Order.LE_VA_CL;
+                    txtL_VA_D.Text = _Order.LE_VA_D;
+                    txtL_VA_R.Text = _Order.LE_VA_R;
+
+                    txtLense.Text = _Order.Lenses;
+
+                    txtR_AXIS_CL.Text = _Order.RE_AXIS_CL;
+                    txtR_AXIS_D.Text = _Order.RE_AXIS_D;
+                    txtR_AXIS_R.Text = _Order.RE_AXIS_R;
+
+                    txtR_CYL_CL.Text = _Order.RE_CYL_CL;
+                    txtR_CYL_D.Text = _Order.RE_CYL_D;
+                    txtR_CYL_R.Text = _Order.RE_CYL_R;
+
+                    txtR_SPH_CL.Text = _Order.RE_SPH_CL;
+                    txtR_SPH_D.Text = _Order.RE_SPH_D;
+                    txtR_SPH_R.Text = _Order.RE_SPH_R;
+
+                    txtR_VA_CL.Text = _Order.RE_VA_CL;
+                    txtR_VA_D.Text = _Order.RE_VA_D;
+                    txtR_VA_R.Text = _Order.RE_VA_R;
+                }
+                else
+                {
+                    lblError.Text = "No records found";
+                }
+            }
+            catch(Exception ex)
             {
                 lblError.Text = ex.Message;
             }
@@ -42,6 +117,7 @@ namespace OpticalPointOfSale.Pages
                 if(CustomerID >= 0)
                 {
                     CustomerOrder _Order = new CustomerOrder();
+                    _Order.BookOrderNo = txtBookSerial.Text.Trim();
                     if (string.IsNullOrEmpty(txtAdvance.Text.Trim()))
                         _Order.Advance = 0;
                     else

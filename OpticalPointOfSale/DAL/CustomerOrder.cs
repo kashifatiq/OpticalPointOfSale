@@ -52,6 +52,7 @@ namespace DAL
         public string LE_VA_CL { get; set; }
         public System.DateTime DateCreated { get; set; }
         public Nullable<System.DateTime> DateUpdated { get; set; }
+        public string BookOrderNo { get; set; }
     
         public virtual Customer Customer { get; set; }
     }

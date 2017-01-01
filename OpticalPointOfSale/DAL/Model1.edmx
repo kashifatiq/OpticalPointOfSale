@@ -57,6 +57,7 @@
           <Property Name="LE_VA_CL" Type="varchar" MaxLength="20" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="BookOrderNo" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Customers">
           <Key>
@@ -112,6 +113,48 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityContainer Name="OpticalPointOfSaleEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppSettings" EntityType="Self.AppSetting" />
+          <EntitySet Name="Customers" EntityType="OpticalPointOfSaleModel.Customer" />
+          <FunctionImport Name="SearchOrders" ReturnType="Collection(OpticalPointOfSaleModel.SearchOrders_Result)">
+            <Parameter Name="CustomerName" Mode="In" Type="String" />
+            <Parameter Name="CustomerContact" Mode="In" Type="String" />
+            <Parameter Name="OrderDate" Mode="In" Type="String" />
+            <Parameter Name="DeliveryDate" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="CustomerOrders" EntityType="OpticalPointOfSaleModel.CustomerOrder" />
+          <AssociationSet Name="FK_CustomerOrders_Customers" Association="OpticalPointOfSaleModel.FK_CustomerOrders_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerOrder" EntitySet="CustomerOrders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ContactInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <NavigationProperty Name="CustomerOrders" Relationship="OpticalPointOfSaleModel.FK_CustomerOrders_Customers" FromRole="Customer" ToRole="CustomerOrder" />
+        </EntityType>
+        <ComplexType Name="SearchOrders_Result">
+          <Property Type="Int64" Name="OrderId" Nullable="false" />
+          <Property Type="Int64" Name="CustomerID" Nullable="false" />
+          <Property Type="String" Name="Particularls" Nullable="true" />
+          <Property Type="String" Name="OrderDate" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="DeliveryDate" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="F_L_C" Nullable="true" MaxLength="1504" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Advance" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="CustomerContact" Nullable="true" />
+        </ComplexType>
         <EntityType Name="CustomerOrder">
           <Key>
             <PropertyRef Name="OrderId" />
@@ -154,36 +197,8 @@
           <Property Name="LE_VA_CL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="BookOrderNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Customer" Relationship="OpticalPointOfSaleModel.FK_CustomerOrders_Customers" FromRole="CustomerOrder" ToRole="Customer" />
-        </EntityType>
-        <EntityContainer Name="OpticalPointOfSaleEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AppSettings" EntityType="Self.AppSetting" />
-          <EntitySet Name="CustomerOrders" EntityType="Self.CustomerOrder" />
-          <EntitySet Name="Customers" EntityType="OpticalPointOfSaleModel.Customer" />
-          <AssociationSet Name="FK_CustomerOrders_Customers" Association="OpticalPointOfSaleModel.FK_CustomerOrders_Customers">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerOrder" EntitySet="CustomerOrders" />
-          </AssociationSet>
-          <FunctionImport Name="SearchOrders" ReturnType="Collection(OpticalPointOfSaleModel.SearchOrders_Result)">
-            <Parameter Name="CustomerName" Mode="In" Type="String" />
-            <Parameter Name="CustomerContact" Mode="In" Type="String" />
-            <Parameter Name="OrderDate" Mode="In" Type="String" />
-            <Parameter Name="DeliveryDate" Mode="In" Type="String" />
-          </FunctionImport>
-        </EntityContainer>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="CustomerID" />
-          </Key>
-          <Property Name="CustomerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="ContactInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="Int64" />
-          <NavigationProperty Name="CustomerOrders" Relationship="OpticalPointOfSaleModel.FK_CustomerOrders_Customers" FromRole="Customer" ToRole="CustomerOrder" />
         </EntityType>
         <Association Name="FK_CustomerOrders_Customers">
           <End Type="OpticalPointOfSaleModel.Customer" Role="Customer" Multiplicity="1" />
@@ -197,19 +212,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="SearchOrders_Result">
-          <Property Type="Int64" Name="OrderId" Nullable="false" />
-          <Property Type="Int64" Name="CustomerID" Nullable="false" />
-          <Property Type="String" Name="Particularls" Nullable="true" />
-          <Property Type="String" Name="OrderDate" Nullable="true" MaxLength="12" />
-          <Property Type="String" Name="DeliveryDate" Nullable="true" MaxLength="12" />
-          <Property Type="String" Name="F_L_C" Nullable="true" MaxLength="1504" />
-          <Property Type="Int32" Name="Total" Nullable="true" />
-          <Property Type="Int32" Name="Advance" Nullable="true" />
-          <Property Type="Int32" Name="Balance" Nullable="true" />
-          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="1000" />
-          <Property Type="String" Name="CustomerContact" Nullable="true" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -224,50 +226,6 @@
                 <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerOrders">
-            <EntityTypeMapping TypeName="OpticalPointOfSaleModel.CustomerOrder">
-              <MappingFragment StoreEntitySet="CustomerOrders">
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="Particularls" ColumnName="Particularls" />
-                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
-                <ScalarProperty Name="Frame" ColumnName="Frame" />
-                <ScalarProperty Name="Lenses" ColumnName="Lenses" />
-                <ScalarProperty Name="ContactLense" ColumnName="ContactLense" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Advance" ColumnName="Advance" />
-                <ScalarProperty Name="Balance" ColumnName="Balance" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="RE_SPH_D" ColumnName="RE_SPH_D" />
-                <ScalarProperty Name="RE_SPH_R" ColumnName="RE_SPH_R" />
-                <ScalarProperty Name="RE_SPH_CL" ColumnName="RE_SPH_CL" />
-                <ScalarProperty Name="RE_CYL_D" ColumnName="RE_CYL_D" />
-                <ScalarProperty Name="RE_CYL_R" ColumnName="RE_CYL_R" />
-                <ScalarProperty Name="RE_CYL_CL" ColumnName="RE_CYL_CL" />
-                <ScalarProperty Name="RE_AXIS_D" ColumnName="RE_AXIS_D" />
-                <ScalarProperty Name="RE_AXIS_R" ColumnName="RE_AXIS_R" />
-                <ScalarProperty Name="RE_AXIS_CL" ColumnName="RE_AXIS_CL" />
-                <ScalarProperty Name="RE_VA_D" ColumnName="RE_VA_D" />
-                <ScalarProperty Name="RE_VA_R" ColumnName="RE_VA_R" />
-                <ScalarProperty Name="RE_VA_CL" ColumnName="RE_VA_CL" />
-                <ScalarProperty Name="LE_SPH_D" ColumnName="LE_SPH_D" />
-                <ScalarProperty Name="LE_SPH_R" ColumnName="LE_SPH_R" />
-                <ScalarProperty Name="LE_SPH_CL" ColumnName="LE_SPH_CL" />
-                <ScalarProperty Name="LE_CYL_D" ColumnName="LE_CYL_D" />
-                <ScalarProperty Name="LE_CYL_R" ColumnName="LE_CYL_R" />
-                <ScalarProperty Name="LE_CYL_CL" ColumnName="LE_CYL_CL" />
-                <ScalarProperty Name="LE_AXIS_D" ColumnName="LE_AXIS_D" />
-                <ScalarProperty Name="LE_AXIS_R" ColumnName="LE_AXIS_R" />
-                <ScalarProperty Name="LE_AXIS_CL" ColumnName="LE_AXIS_CL" />
-                <ScalarProperty Name="LE_VA_D" ColumnName="LE_VA_D" />
-                <ScalarProperty Name="LE_VA_R" ColumnName="LE_VA_R" />
-                <ScalarProperty Name="LE_VA_CL" ColumnName="LE_VA_CL" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -302,6 +260,51 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="CustomerOrders">
+            <EntityTypeMapping TypeName="OpticalPointOfSaleModel.CustomerOrder">
+              <MappingFragment StoreEntitySet="CustomerOrders">
+                <ScalarProperty Name="BookOrderNo" ColumnName="BookOrderNo" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="LE_VA_CL" ColumnName="LE_VA_CL" />
+                <ScalarProperty Name="LE_VA_R" ColumnName="LE_VA_R" />
+                <ScalarProperty Name="LE_VA_D" ColumnName="LE_VA_D" />
+                <ScalarProperty Name="LE_AXIS_CL" ColumnName="LE_AXIS_CL" />
+                <ScalarProperty Name="LE_AXIS_R" ColumnName="LE_AXIS_R" />
+                <ScalarProperty Name="LE_AXIS_D" ColumnName="LE_AXIS_D" />
+                <ScalarProperty Name="LE_CYL_CL" ColumnName="LE_CYL_CL" />
+                <ScalarProperty Name="LE_CYL_R" ColumnName="LE_CYL_R" />
+                <ScalarProperty Name="LE_CYL_D" ColumnName="LE_CYL_D" />
+                <ScalarProperty Name="LE_SPH_CL" ColumnName="LE_SPH_CL" />
+                <ScalarProperty Name="LE_SPH_R" ColumnName="LE_SPH_R" />
+                <ScalarProperty Name="LE_SPH_D" ColumnName="LE_SPH_D" />
+                <ScalarProperty Name="RE_VA_CL" ColumnName="RE_VA_CL" />
+                <ScalarProperty Name="RE_VA_R" ColumnName="RE_VA_R" />
+                <ScalarProperty Name="RE_VA_D" ColumnName="RE_VA_D" />
+                <ScalarProperty Name="RE_AXIS_CL" ColumnName="RE_AXIS_CL" />
+                <ScalarProperty Name="RE_AXIS_R" ColumnName="RE_AXIS_R" />
+                <ScalarProperty Name="RE_AXIS_D" ColumnName="RE_AXIS_D" />
+                <ScalarProperty Name="RE_CYL_CL" ColumnName="RE_CYL_CL" />
+                <ScalarProperty Name="RE_CYL_R" ColumnName="RE_CYL_R" />
+                <ScalarProperty Name="RE_CYL_D" ColumnName="RE_CYL_D" />
+                <ScalarProperty Name="RE_SPH_CL" ColumnName="RE_SPH_CL" />
+                <ScalarProperty Name="RE_SPH_R" ColumnName="RE_SPH_R" />
+                <ScalarProperty Name="RE_SPH_D" ColumnName="RE_SPH_D" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Advance" ColumnName="Advance" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ContactLense" ColumnName="ContactLense" />
+                <ScalarProperty Name="Lenses" ColumnName="Lenses" />
+                <ScalarProperty Name="Frame" ColumnName="Frame" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="Particularls" ColumnName="Particularls" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -43,7 +43,7 @@
                             <asp:TextBox ID="txtSearchText" runat="server" Width="100%"></asp:TextBox>
                         </td>
                         <td style="width: 10%; padding:0px">
-                             <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" Width="100%" />
+                             <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" Width="100%" CssClass="button buttonSubmit" />
                         </td>
                     </tr>
                 </table>
@@ -55,10 +55,10 @@
         </tr>      
         <tr>
             <td colspan="2" style="width: 80%; padding:0px;">
-                <asp:GridView ID="gvOrders" runat="server" AutoGenerateColumns="False" CssClass="Grid" DataKeyNames="OrderId">
+                <asp:GridView ID="gvOrders" runat="server" AutoGenerateColumns="False" CssClass="Grid" DataKeyNames="OrderId" AllowPaging="True" OnPageIndexChanging="gvOrders_PageIndexChanging" PageSize="30">
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="OrderId" DataNavigateUrlFormatString="~/Pages/AddEditOrder.aspx?orderid={0}" DataTextField="OrderId" HeaderText="Order #" NavigateUrl="~/Pages/AddEditOrder.aspx" >
-                        <ItemStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" VerticalAlign="Middle" />
+                        <ItemStyle ForeColor="Black" HorizontalAlign="Center" VerticalAlign="Middle"/>
                         </asp:HyperLinkField>
                         <asp:BoundField DataField="CustomerName" HeaderText="Customer Name" />
                         <asp:BoundField DataField="CustomerContact" HeaderText="Customer Contact" />
@@ -71,6 +71,7 @@
                         <asp:BoundField DataField="Balance" HeaderText="Balance" />
                         <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" Visible="False" />
                     </Columns>
+                    <PagerStyle CssClass="pgr" HorizontalAlign="Center" />
                 </asp:GridView>
             </td>
         </tr>

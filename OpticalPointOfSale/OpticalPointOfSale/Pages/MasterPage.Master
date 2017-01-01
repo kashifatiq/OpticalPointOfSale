@@ -4,6 +4,7 @@
 <head runat="server">
     <link href="../Content/Site.css" rel="stylesheet" />
     <title>Optical Point Of Sale</title>
+
 </head>
 <body>
 <form id="form1" runat="server">
@@ -15,15 +16,14 @@
                     <table align="left" cellpadding="0" cellspacing="0" style="width: 100%; float: left">
                         <tr>
                             <td class="zero" style="padding:5px 0px 5px 0px">
-                                <asp:Label ID="lblShopName" runat="server" Text="Shop Name" Font-Size="Large"></asp:Label>
+                                <asp:Label ID="lblShopName" runat="server" Text="Shop Name" ForeColor="#f44336" Font-Size="18px"></asp:Label>
                             </td> 
-                        </tr>
-                        <tr>
-                            <td style="background-color:grey; text-align:center">
+                            <td style="text-align:right; padding:5px 0px 5px 0px">
                                 <asp:LinkButton ID="lnkCreateOrder" runat="server" PostBackUrl="~\Pages\AddEditOrder.aspx" CausesValidation="False">Create order</asp:LinkButton>
                                 <asp:LinkButton ID="lnkOrdersList" runat="server" PostBackUrl="~\Pages\OrdersList.aspx" CausesValidation="False">Orders list</asp:LinkButton>
                             </td>
                         </tr>
+                        
                     </table>
                 </asp:ContentPlaceHolder>
             </td>

@@ -32,8 +32,8 @@ namespace OpticalPointOfSale.Pages
             cmbSearchType.Items.Add(new ListItem("Show All", "0"));
             cmbSearchType.Items.Add(new ListItem("Customer Name", "1"));
             cmbSearchType.Items.Add(new ListItem("Customer Contact", "2"));
-            cmbSearchType.Items.Add(new ListItem("Order Date", "3"));
-            cmbSearchType.Items.Add(new ListItem("Delivery Date", "4"));
+            /*cmbSearchType.Items.Add(new ListItem("Order Date", "3"));
+            cmbSearchType.Items.Add(new ListItem("Delivery Date", "4"));*/
             cmbSearchType.SelectedIndex = 2;
         }
 
@@ -77,24 +77,35 @@ namespace OpticalPointOfSale.Pages
         {
             try
             {
-                string CustomerName = string.Empty;
-                string ContactInfor = string.Empty;
-                string  OrderDate = string.Empty;
-                string DeliveryDate = string.Empty;
-                if (cmbSearchType.SelectedItem.Text == "Customer Name")
-                    CustomerName = txtSearchText.Text.Trim();
-                else if (cmbSearchType.SelectedItem.Text == "Customer Contact")
-                    ContactInfor = txtSearchText.Text.Trim();
-                else if (cmbSearchType.SelectedItem.Text == "Order Date")
-                    OrderDate = txtSearchText.Text.Trim();
-                else if (cmbSearchType.SelectedItem.Text == "Delivery Ddate")
-                    DeliveryDate = txtSearchText.Text.Trim();
-                LoadGrid(CustomerName, ContactInfor, OrderDate, DeliveryDate);
+                BindGrid();
             }
             catch(Exception ex)
             {
                 lblError.Text = ex.Message;
             }
+        }
+
+        private void BindGrid()
+        {
+            string CustomerName = string.Empty;
+            string ContactInfor = string.Empty;
+            string OrderDate = string.Empty;
+            string DeliveryDate = string.Empty;
+            if (cmbSearchType.SelectedItem.Text == "Customer Name")
+                CustomerName = txtSearchText.Text.Trim();
+            else if (cmbSearchType.SelectedItem.Text == "Customer Contact")
+                ContactInfor = txtSearchText.Text.Trim();
+            /*else if (cmbSearchType.SelectedItem.Text == "Order Date")
+                OrderDate = txtSearchText.Text.Trim();
+            else if (cmbSearchType.SelectedItem.Text == "Delivery Ddate")
+                DeliveryDate = txtSearchText.Text.Trim();*/
+            LoadGrid(CustomerName, ContactInfor, OrderDate, DeliveryDate);
+        }
+
+        protected void gvOrders_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvOrders.PageIndex = e.NewPageIndex;
+            BindGrid();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddEditOrder.aspx.cs" Inherits="OpticalPointOfSale.Pages.AddEditOrder" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpCenter" runat="server">
     <script type="text/javascript">
+        
         function calcBalance()
         {
             var total = document.getElementById('<%= txtTotal.ClientID %>').value;
@@ -9,6 +11,7 @@
             document.getElementById('<%= txtBalance.ClientID %>').value = balance;
         }
     </script>
+    <asp:ScriptManager ID="toolScriptManageer1" runat="server"></asp:ScriptManager>
     <table align="left" cellpadding="0" cellspacing="0" style="width: 100%; float: left">
         <tr>
             <td colspan="2">
@@ -58,10 +61,12 @@
         
         <tr>
             <td style="width: 40%">
-                <asp:TextBox ID="txtDate" runat="server" TextMode="Date"></asp:TextBox>
+                <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
+                <ajaxToolkit:CalendarExtender runat="server" ID="txtDateExtender" TargetControlID="txtDate" Format="MMM dd yyyy" PopupButtonID="Image1" />
             </td>
             <td style="width: 40%">
-                <asp:TextBox ID="txtDeliveryDate" runat="server" TextMode="Date"></asp:TextBox>
+                <asp:TextBox ID="txtDeliveryDate" runat="server"></asp:TextBox>
+                <ajaxToolkit:CalendarExtender runat="server" ID="txtDeliveryDateExtender" TargetControlID="txtDeliveryDate" Format="MMM dd yyyy" PopupButtonID="Image1" />
             </td>
         </tr>
         
@@ -108,61 +113,61 @@
                 <table align="left" cellpadding="0" cellspacing="0" class="float-left">
                     <tr>
                         <td style="padding: 0px 10px 0px 0px; margin: 0px;"> 
-                     <table cellpadding="0" cellspacing="0" style="border: 1px solid #FF0000; width: 100%;">
+                     <table cellpadding="0" cellspacing="0" style="border: 1px solid #999999; width: 100%;">
                     <tr>
-                        <td colspan="5" style="padding: 0px; margin: 0px; text-align:center; background-color: #FF0000; font-size: large; color: #FFFFFF; font-weight: bold;">
+                        <td colspan="5" style="padding: 0px; margin: 0px; text-align:center; background-color: #999999; font-size: large; color: #FFFFFF; font-weight: bold;">
                 <asp:Label ID="Label14" runat="server" Text="Right Eye" CssClass="label"></asp:Label>
                         </td>
                     </tr>
-                    <tr style="border: 1px solid #FF0000; height:30px" >
-                        <td style="border: 1px solid #FF0000;padding: 0px; margin: 0px; text-align:center;"></td>
-                        <td style="border: 1px solid #FF0000;padding: 0px; margin: 0px; text-align:center;">SPH</td>
-                        <td style="border: 1px solid #FF0000;padding: 0px; margin: 0px; text-align:center;">CYL</td>
-                        <td style="border: 1px solid #FF0000;padding: 0px; margin: 0px; text-align:center;">AXIS</td>
-                        <td style="border: 1px solid #FF0000;padding: 0px; margin: 0px; text-align:center;">VA</td>
+                    <tr style="border: 1px solid #999999; height:30px" >
+                        <td style="border: 1px solid #999999;padding: 0px; margin: 0px; text-align:center;"></td>
+                        <td style="border: 1px solid #999999;padding: 0px; margin: 0px; text-align:center;">SPH</td>
+                        <td style="border: 1px solid #999999;padding: 0px; margin: 0px; text-align:center;">CYL</td>
+                        <td style="border: 1px solid #999999;padding: 0px; margin: 0px; text-align:center;">AXIS</td>
+                        <td style="border: 1px solid #999999;padding: 0px; margin: 0px; text-align:center;">VA</td>
                     </tr>
-                    <tr style="border: 1px solid #FF0000; height:38px" >
-                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #FF0000; text-align: center;">D</td>
-                        <td style="padding: 0em 0.9em 0em 0em; border: 1px solid #FF0000;">
+                    <tr style="border: 1px solid #999999; height:38px" >
+                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #999999; text-align: center;">D</td>
+                        <td style="padding: 0em 0.9em 0em 0em; border: 1px solid #999999;">
                 <asp:TextBox ID="txtR_SPH_D" runat="server"></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtR_CYL_D" runat="server" ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtR_AXIS_D" runat="server" ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtR_VA_D" runat="server" ></asp:TextBox>
                         </td>
                     </tr>
-                    <tr style="border: 1px solid #FF0000; height:38px" >
-                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #FF0000">R</td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                    <tr style="border: 1px solid #999999; height:38px" >
+                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #999999">R</td>
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtR_SPH_R" runat="server" ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtR_CYL_R" runat="server" TextMode="SingleLine"></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtR_AXIS_R" runat="server" ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtR_VA_R" runat="server" TextMode="Number"></asp:TextBox>
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
+                <asp:TextBox ID="txtR_VA_R" runat="server"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr style="border: 1px solid #FF0000; height:38px" >
-                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #FF0000">CL</td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
-                <asp:TextBox ID="txtR_SPH_CL" runat="server" TextMode="Number"></asp:TextBox>
+                    <tr style="border: 1px solid #999999; height:38px" >
+                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #999999">CL</td>
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
+                <asp:TextBox ID="txtR_SPH_CL" runat="server"></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtR_CYL_CL" runat="server"  ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtR_AXIS_CL" runat="server"  ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtR_VA_CL" runat="server"  ></asp:TextBox>
                         </td>
                     </tr>
@@ -170,61 +175,61 @@
 
                         </td>
                         <td style="padding: 0px 0px 0px 10px; margin: 0px;">     
-                     <table cellpadding="0" cellspacing="0" style="border: 1px solid #FF0000">
+                     <table cellpadding="0" cellspacing="0" style="border: 1px solid #999999">
                     <tr>
-                        <td colspan="5" style="padding: 0px; margin: 0px; text-align:center; font-size: large; font-weight: bold; color: #FFFFFF; background-color: #FF0000;">
+                        <td colspan="5" style="padding: 0px; margin: 0px; text-align:center; font-size: large; font-weight: bold; color: #FFFFFF; background-color: #999999;">
                 <asp:Label ID="Label15" runat="server" Text="Left Eye" CssClass="label"></asp:Label>
                         </td>
                     </tr>
-                    <tr style="border: 1px solid #FF0000; height:30px" >
-                        <td style="border: 1px solid #FF0000;padding: 0px; margin: 0px; text-align:center;"></td>
-                        <td style="border: 1px solid #FF0000;padding: 0px; margin: 0px; text-align:center;">SPH</td>
-                        <td style="border: 1px solid #FF0000;padding: 0px; margin: 0px; text-align:center;">CYL</td>
-                        <td style="border: 1px solid #FF0000;padding: 0px; margin: 0px; text-align:center;">AXIS</td>
-                        <td style="border: 1px solid #FF0000;padding: 0px; margin: 0px; text-align:center;">VA</td>
+                    <tr style="border: 1px solid #999999; height:30px" >
+                        <td style="border: 1px solid #999999;padding: 0px; margin: 0px; text-align:center;"></td>
+                        <td style="border: 1px solid #999999;padding: 0px; margin: 0px; text-align:center;">SPH</td>
+                        <td style="border: 1px solid #999999;padding: 0px; margin: 0px; text-align:center;">CYL</td>
+                        <td style="border: 1px solid #999999;padding: 0px; margin: 0px; text-align:center;">AXIS</td>
+                        <td style="border: 1px solid #999999;padding: 0px; margin: 0px; text-align:center;">VA</td>
                     </tr>
-                    <tr style="border: 1px solid #FF0000; height:38px" >
-                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #FF0000">D</td>
-                        <td style="padding:0em 0.9em 0em 0em; border: 1px solid #FF0000">
+                    <tr style="border: 1px solid #999999; height:38px" >
+                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #999999">D</td>
+                        <td style="padding:0em 0.9em 0em 0em; border: 1px solid #999999">
                 <asp:TextBox ID="txtL_SPH_D" runat="server"  ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtL_CYL_D" runat="server"  ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtL_AXIS_D" runat="server"  ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtL_VA_D" runat="server"  ></asp:TextBox>
                         </td>
                     </tr>
-                    <tr style="border: 1px solid #FF0000; height:38px" >
-                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #FF0000">R</td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                    <tr style="border: 1px solid #999999; height:38px" >
+                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #999999">R</td>
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtL_SPH_R" runat="server"  ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtL_CYL_R" runat="server"  ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtL_AXIS_R" runat="server"  ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtL_VA_R" runat="server"  ></asp:TextBox>
                         </td>
                     </tr>
-                    <tr style="border: 1px solid #FF0000; height:38px" >
-                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #FF0000">CL</td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                    <tr style="border: 1px solid #999999; height:38px" >
+                        <td style="padding: 0px; margin: 0px; text-align:center; border: 1px solid #999999">CL</td>
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtL_SPH_CL" runat="server"  ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtL_CYL_CL" runat="server"  ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtL_AXIS_CL" runat="server"  ></asp:TextBox>
                         </td>
-                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #FF0000">
+                        <td style="padding: 0em 0.9em 0em 0em;border: 1px solid #999999">
                 <asp:TextBox ID="txtL_VA_CL" runat="server"  ></asp:TextBox>
                         </td>
                     </tr>
@@ -288,7 +293,7 @@
         </tr>
         
         <tr>
-            <td style="text-align: center;" colspan="2"><asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" Width="80px" /></td>
+            <td style="text-align: center;" colspan="2"><asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"  CssClass="button buttonSubmit" /></td>
         </tr>
         
         </table>

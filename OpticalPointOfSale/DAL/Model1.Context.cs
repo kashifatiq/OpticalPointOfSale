@@ -28,8 +28,8 @@ namespace DAL
         }
     
         public virtual DbSet<AppSetting> AppSettings { get; set; }
-        public virtual DbSet<CustomerOrder> CustomerOrders { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<CustomerOrder> CustomerOrders { get; set; }
     
         public virtual ObjectResult<SearchOrders_Result> SearchOrders(string customerName, string customerContact, string orderDate, string deliveryDate)
         {

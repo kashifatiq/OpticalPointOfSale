@@ -13,6 +13,15 @@ namespace OpticalPointOfSale.Pages {
     public partial class AddEditOrder {
         
         /// <summary>
+        /// toolScriptManageer1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager toolScriptManageer1;
+        
+        /// <summary>
         /// lblHeading control.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace OpticalPointOfSale.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtDate;
         
         /// <summary>
+        /// txtDateExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender txtDateExtender;
+        
+        /// <summary>
         /// txtDeliveryDate control.
         /// </summary>
         /// <remarks>
@@ -119,6 +137,15 @@ namespace OpticalPointOfSale.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDeliveryDate;
+        
+        /// <summary>
+        /// txtDeliveryDateExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender txtDeliveryDateExtender;
         
         /// <summary>
         /// Label4 control.
