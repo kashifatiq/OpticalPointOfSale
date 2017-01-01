@@ -113,80 +113,100 @@ namespace OpticalPointOfSale.Pages
             EmptyMessages();
             try
             {
-                long CustomerID = GetCustomerID();
-                if(CustomerID >= 0)
+                if (Request.QueryString["orderid"] == null)
                 {
-                    CustomerOrder _Order = new CustomerOrder();
-                    _Order.BookOrderNo = txtBookSerial.Text.Trim();
-                    if (string.IsNullOrEmpty(txtAdvance.Text.Trim()))
-                        _Order.Advance = 0;
-                    else
-                        _Order.Advance = Convert.ToInt32(txtAdvance.Text);
-                    if (string.IsNullOrEmpty(txtBalance.Text.Trim()))
-                        _Order.Balance = 0;
-                    else
-                        _Order.Balance = Convert.ToInt32(txtBalance.Text.Trim());
-                    _Order.Comments = "";
-                    
-                    _Order.ContactLense = txtContactLenses.Text.Trim();
-                    
-                    _Order.CustomerID = CustomerID;
-                    _Order.DateCreated = DateTime.Now;
-                    if (!string.IsNullOrEmpty(txtDeliveryDate.Text.Trim()))
-                        _Order.DeliveryDate = Convert.ToDateTime(txtDeliveryDate.Text.Trim());
-                    
-                    _Order.Frame = txtFrames.Text.Trim();
-
-                    _Order.LE_AXIS_CL = txtL_AXIS_CL.Text.Trim();
-                    _Order.LE_AXIS_D = txtL_AXIS_D.Text.Trim();
-                    _Order.LE_AXIS_R = txtL_AXIS_R.Text.Trim();
-
-                    _Order.LE_CYL_CL = txtL_CYL_CL.Text.Trim();
-                    _Order.LE_CYL_D = txtL_CYL_D.Text.Trim();
-                    _Order.LE_CYL_R = txtL_CYL_R.Text.Trim();
-
-                    _Order.LE_SPH_CL = txtL_SPH_CL.Text.Trim();
-                    _Order.LE_SPH_D = txtL_SPH_D.Text.Trim();
-                    _Order.LE_SPH_R = txtL_SPH_R.Text.Trim();
-
-                    _Order.LE_VA_CL = txtL_VA_CL.Text.Trim();
-                    _Order.LE_VA_D = txtL_VA_D.Text.Trim();
-                    _Order.LE_VA_R = txtL_VA_R.Text.Trim();
-
-                    _Order.Lenses = txtLense.Text.Trim();
-                    _Order.OrderDate = Convert.ToDateTime(txtDate.Text.Trim());
-                    _Order.Particularls = txtParticulars.Text.Trim();
-
-                    _Order.RE_AXIS_CL = txtR_AXIS_CL.Text.Trim();
-                    _Order.RE_AXIS_D = txtR_AXIS_D.Text.Trim();
-                    _Order.RE_AXIS_R = txtR_AXIS_R.Text.Trim();
-
-                    _Order.RE_CYL_CL = txtR_CYL_CL.Text.Trim();
-                    _Order.RE_CYL_D = txtR_CYL_D.Text.Trim();
-                    _Order.RE_CYL_R = txtR_CYL_R.Text.Trim();
-
-                    _Order.RE_SPH_CL = txtR_SPH_CL.Text.Trim();
-                    _Order.RE_SPH_D = txtR_SPH_D.Text.Trim();
-                    _Order.RE_SPH_R = txtR_SPH_R.Text.Trim();
-
-                    _Order.RE_VA_CL = txtR_VA_CL.Text.Trim();
-                    _Order.RE_VA_D = txtR_VA_D.Text.Trim();
-                    _Order.RE_VA_R = txtR_VA_R.Text.Trim();
-
-                    if (string.IsNullOrEmpty(txtTotal.Text.Trim()))
-                        _Order.Total = 0;
-                    else
-                        _Order.Total = Convert.ToInt32(txtTotal.Text.Trim());
-                    EF.CustomerOrders.Add(_Order);
-                    EF.SaveChanges();
-                    lblMessage.Text = "Order saved";
-                    EmptyControls();
+                    long CustomerID = GetCustomerID();
+                    if (CustomerID >= 0)
+                    {
+                        CustomerOrder _Order = new CustomerOrder();
+                        FillOrderObject(CustomerID, _Order);
+                        EF.CustomerOrders.Add(_Order);
+                        EF.SaveChanges();
+                        lblMessage.Text = "Order saved";
+                    }
                 }
+                else
+                {
+                    long OrderID = Convert.ToInt64(Request.QueryString["orderid"]);
+                    CustomerOrder _Order = (from objResult in EF.CustomerOrders where objResult.OrderId == OrderID select objResult).FirstOrDefault();
+                    FillOrderObject(0, _Order);
+                    EF.SaveChanges();
+                    lblMessage.Text = "Order: " + _Order.OrderId.ToString() + " Updated";
+                }
+                EmptyControls();
             }
             catch (Exception ex)
             {
                 lblError.Text = ex.Message;
             }
+        }
+
+        private void FillOrderObject(long CustomerID, CustomerOrder _Order)
+        {
+            _Order.BookOrderNo = txtBookSerial.Text.Trim();
+            if (string.IsNullOrEmpty(txtAdvance.Text.Trim()))
+                _Order.Advance = 0;
+            else
+                _Order.Advance = Convert.ToInt32(txtAdvance.Text);
+            if (string.IsNullOrEmpty(txtBalance.Text.Trim()))
+                _Order.Balance = 0;
+            else
+                _Order.Balance = Convert.ToInt32(txtBalance.Text.Trim());
+            _Order.Comments = "";
+
+            _Order.ContactLense = txtContactLenses.Text.Trim();
+
+            if (CustomerID > 0)
+                _Order.CustomerID = CustomerID;
+            if (CustomerID > 0)
+                _Order.DateCreated = DateTime.Now;
+            else
+                _Order.DateUpdated = DateTime.Now;
+            if (!string.IsNullOrEmpty(txtDeliveryDate.Text.Trim()))
+                _Order.DeliveryDate = Convert.ToDateTime(txtDeliveryDate.Text.Trim());
+
+            _Order.Frame = txtFrames.Text.Trim();
+
+            _Order.LE_AXIS_CL = txtL_AXIS_CL.Text.Trim();
+            _Order.LE_AXIS_D = txtL_AXIS_D.Text.Trim();
+            _Order.LE_AXIS_R = txtL_AXIS_R.Text.Trim();
+
+            _Order.LE_CYL_CL = txtL_CYL_CL.Text.Trim();
+            _Order.LE_CYL_D = txtL_CYL_D.Text.Trim();
+            _Order.LE_CYL_R = txtL_CYL_R.Text.Trim();
+
+            _Order.LE_SPH_CL = txtL_SPH_CL.Text.Trim();
+            _Order.LE_SPH_D = txtL_SPH_D.Text.Trim();
+            _Order.LE_SPH_R = txtL_SPH_R.Text.Trim();
+
+            _Order.LE_VA_CL = txtL_VA_CL.Text.Trim();
+            _Order.LE_VA_D = txtL_VA_D.Text.Trim();
+            _Order.LE_VA_R = txtL_VA_R.Text.Trim();
+
+            _Order.Lenses = txtLense.Text.Trim();
+            _Order.OrderDate = Convert.ToDateTime(txtDate.Text.Trim());
+            _Order.Particularls = txtParticulars.Text.Trim();
+
+            _Order.RE_AXIS_CL = txtR_AXIS_CL.Text.Trim();
+            _Order.RE_AXIS_D = txtR_AXIS_D.Text.Trim();
+            _Order.RE_AXIS_R = txtR_AXIS_R.Text.Trim();
+
+            _Order.RE_CYL_CL = txtR_CYL_CL.Text.Trim();
+            _Order.RE_CYL_D = txtR_CYL_D.Text.Trim();
+            _Order.RE_CYL_R = txtR_CYL_R.Text.Trim();
+
+            _Order.RE_SPH_CL = txtR_SPH_CL.Text.Trim();
+            _Order.RE_SPH_D = txtR_SPH_D.Text.Trim();
+            _Order.RE_SPH_R = txtR_SPH_R.Text.Trim();
+
+            _Order.RE_VA_CL = txtR_VA_CL.Text.Trim();
+            _Order.RE_VA_D = txtR_VA_D.Text.Trim();
+            _Order.RE_VA_R = txtR_VA_R.Text.Trim();
+
+            if (string.IsNullOrEmpty(txtTotal.Text.Trim()))
+                _Order.Total = 0;
+            else
+                _Order.Total = Convert.ToInt32(txtTotal.Text.Trim());
         }
 
         private void EmptyControls()
