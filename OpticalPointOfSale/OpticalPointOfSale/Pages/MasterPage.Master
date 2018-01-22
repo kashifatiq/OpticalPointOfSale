@@ -21,6 +21,7 @@
                             <td style="text-align:right; padding:5px 0px 5px 0px">
                                 <asp:LinkButton ID="lnkCreateOrder" runat="server" PostBackUrl="~\Pages\AddEditOrder.aspx" CausesValidation="False">Create order</asp:LinkButton>
                                 <asp:LinkButton ID="lnkOrdersList" runat="server" PostBackUrl="~\Pages\OrdersList.aspx" CausesValidation="False">Orders list</asp:LinkButton>
+                                <asp:LinkButton ID="btnLogOut" runat="server" CausesValidation="False" OnClick="btnLogOut_Click">Log Out</asp:LinkButton>
                             </td>
                         </tr>
                         

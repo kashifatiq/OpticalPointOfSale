@@ -11,14 +11,19 @@ namespace OpticalPointOfSale.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try{
+            try
+            {
                 AppSettings _setting = new AppSettings();
                 lblShopName.Text = _setting.ShopName;
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-
             }
+        }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
         }
     }
 }
