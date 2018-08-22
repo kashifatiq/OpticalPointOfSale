@@ -9,10 +9,12 @@ namespace OpticalPointOfSale.Pages
 {
     public partial class MasterPage : System.Web.UI.MasterPage
     {
+        Helper.UserSession helper = new Helper.UserSession();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+                helper.isLogedIn();
                 AppSettings _setting = new AppSettings();
                 lblShopName.Text = _setting.ShopName;
             }
@@ -23,6 +25,7 @@ namespace OpticalPointOfSale.Pages
 
         protected void btnLogOut_Click(object sender, EventArgs e)
         {
+            helper.Logout();
             Response.Redirect("login.aspx");
         }
     }

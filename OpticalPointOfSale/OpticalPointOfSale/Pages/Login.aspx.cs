@@ -9,9 +9,9 @@ namespace OpticalPointOfSale.Pages
 {
     public partial class Login : System.Web.UI.Page
     {
+        Helper.UserSession helper = new Helper.UserSession();
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -22,6 +22,7 @@ namespace OpticalPointOfSale.Pages
                 var credentials = OpticalPointOfSale.Properties.Settings.Default.logincredentials.Split(',');
                 if (txtUserName.Text.Trim() == credentials[0].ToString() && txtPassword.Text.Trim() == credentials[1].ToString())
                 {
+                    helper.Login();
                     Response.Redirect("AddEditOrder.aspx");
                 }
                 else
